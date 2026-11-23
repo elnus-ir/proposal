@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#071b2b">
+<meta name="description" content="چارچوب پیشنهادی تحول داده، حاکمیت داده و هوش تجاری سازمانی بیمارستان میلاد؛ از شناخت و ارزیابی تا معماری، شاخص‌ها و آمادگی هوش مصنوعی.">
+<meta name="color-scheme" content="light">
+<title>طرح راهبردی تحول داده و هوش تجاری سازمانی | بیمارستان میلاد</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap');
+:root{
+ --navy:#071b2b;--navy2:#0d2a40;--teal:#13b8a6;--teal2:#75e0d1;--blue:#4c8dff;
+ --ink:#172b3a;--muted:#647887;--paper:#f4f7f8;--white:#fff;--line:#e1e9ec;
+ --gold:#e7b65b;--rose:#d96d78;--shadow:0 18px 50px rgba(8,35,53,.09);--radius:22px;
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth;scroll-padding-top:92px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Vazirmatn",Tahoma,sans-serif;line-height:1.9}
+a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(7,27,43,.94);backdrop-filter:blur(16px);color:#fff;border-bottom:1px solid rgba(255,255,255,.1)}
+.topinner{max-width:1440px;margin:auto;padding:10px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;white-space:nowrap}
+.brandmark{width:39px;height:39px;border-radius:13px;background:linear-gradient(135deg,var(--teal),#3675b9);display:grid;place-items:center;font-size:20px}
+.brand small{display:block;color:#9eb4c1;font-size:10px;font-weight:400;line-height:1.3}
+.nav{display:flex;gap:5px;align-items:center;overflow:auto;scrollbar-width:none}
+.nav a{font-size:12px;color:#c3d1d9;padding:8px 11px;border-radius:10px;white-space:nowrap;transition:.2s}
+.nav a:hover,.nav a.active{background:rgba(19,184,166,.16);color:#75e0d1}
+.actions{display:flex;gap:8px;white-space:nowrap}
+.btn{border:1px solid rgba(255,255,255,.2);background:transparent;color:#fff;padding:8px 13px;border-radius:10px;font-size:12px}
+.btn.primary{background:var(--teal);border-color:var(--teal);color:#062a32;font-weight:800}
+.hero{background:radial-gradient(circle at 15% 15%,rgba(19,184,166,.23),transparent 30%),radial-gradient(circle at 85% 80%,rgba(76,141,255,.18),transparent 32%),linear-gradient(130deg,#071b2b,#0b2d43 65%,#103e50);color:#fff;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;width:520px;height:520px;border:1px solid rgba(255,255,255,.08);border-radius:50%;left:-180px;top:-250px;box-shadow:0 0 0 45px rgba(255,255,255,.018),0 0 0 90px rgba(255,255,255,.015)}
+.hero-inner{max-width:1240px;margin:auto;padding:84px 28px 76px;position:relative;z-index:1}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--teal2);font-size:13px;font-weight:700;letter-spacing:.2px}
+.dot{width:8px;height:8px;background:var(--teal);border-radius:50%;box-shadow:0 0 0 5px rgba(19,184,166,.15)}
+.hero h1{font-size:clamp(32px,5vw,58px);line-height:1.45;max-width:900px;margin:20px 0 14px;font-weight:900}
+.hero h1 span{color:var(--teal2)}
+.hero p{font-size:17px;color:#c4d5de;max-width:790px;margin:0 0 28px}
+.hero-tags{display:flex;gap:9px;flex-wrap:wrap;margin-top:26px}
+.tag{border:1px solid rgba(255,255,255,.17);background:rgba(255,255,255,.06);padding:7px 13px;border-radius:30px;font-size:12px;color:#dce8ed}
+.hero-meta{display:flex;gap:30px;flex-wrap:wrap;margin-top:40px;padding-top:23px;border-top:1px solid rgba(255,255,255,.14);color:#a9bfca;font-size:12px}
+.hero-meta strong{color:#fff;display:block;font-size:14px}
+.wrap{max-width:1240px;margin:auto;padding:0 28px}
+.section{padding:76px 0}
+.section.white{background:#fff}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:30px}
+.kicker{font-size:12px;color:#079b8e;font-weight:800;letter-spacing:.4px}
+h2{font-size:clamp(24px,3vw,35px);line-height:1.5;margin:4px 0 8px;color:var(--navy);font-weight:900}
+.lead{color:var(--muted);max-width:760px;margin:0;font-size:14px}
+.section-number{font-size:58px;line-height:1;color:#e6edef;font-weight:900}
+.grid{display:grid;gap:18px}
+.grid.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid.three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid.four{grid-template-columns:repeat(4,minmax(0,1fr))}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:23px;box-shadow:0 5px 20px rgba(8,35,53,.035)}
+.card.dark{background:linear-gradient(145deg,#0d2a40,#123d50);color:#fff;border:0}
+.card h3{font-size:17px;margin:0 0 9px;color:var(--navy);font-weight:800}
+.card.dark h3{color:#fff}
+.card p{font-size:13px;color:var(--muted);margin:0}
+.card.dark p{color:#c2d4dc}
+.icon{width:43px;height:43px;border-radius:14px;background:#e7f8f5;color:#078f83;display:grid;place-items:center;font-size:21px;margin-bottom:16px}
+.card.dark .icon{background:rgba(19,184,166,.15);color:var(--teal2)}
+.callout{border-right:4px solid var(--teal);background:#eaf8f6;border-radius:14px;padding:19px 22px;color:#244b51;font-size:14px;margin-top:22px}
+.callout strong{color:#087d74}
+.pill{display:inline-block;font-size:11px;color:#087d74;background:#e4f7f4;border-radius:20px;padding:4px 10px;font-weight:700}
+.problem-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.problem{display:flex;gap:12px;padding:15px;background:#fff;border:1px solid var(--line);border-radius:15px;font-size:13px;color:#405563}
+.problem b{color:var(--teal);font-size:17px}
+.steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;position:relative}
+.step{background:#fff;border:1px solid var(--line);border-radius:18px;padding:19px;position:relative;min-height:210px}
+.step .n{width:32px;height:32px;border-radius:10px;background:var(--navy);color:#fff;display:grid;place-items:center;font-weight:800;margin-bottom:15px}
+.step h3{font-size:15px;margin:0 0 8px;color:var(--navy)}
+.step p{font-size:12px;color:var(--muted);margin:0}
+.step small{display:block;color:#079b8e;font-weight:800;margin-top:13px}
+.governance{display:grid;gap:12px;max-width:850px;margin:auto}
+.gov-level{border-radius:17px;padding:18px 22px;text-align:center;border:1px solid var(--line);background:#fff}
+.gov-level.primary{background:var(--navy);color:#fff;border-color:var(--navy)}
+.gov-level.secondary{background:#e8f7f5;border-color:#ccece7}
+.gov-level strong{display:block;font-size:15px}
+.gov-level span{font-size:12px;opacity:.8}
+.gov-connect{text-align:center;color:#11a99a;font-size:22px;line-height:1}
+.gov-columns{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.gov-columns .gov-level{background:#f9fbfc}
+.arch{display:grid;grid-template-columns:1fr;gap:9px;max-width:900px;margin:auto}
+.arch-layer{display:flex;align-items:center;gap:18px;padding:15px 19px;border-radius:15px;background:#fff;border:1px solid var(--line);position:relative}
+.arch-layer .idx{width:34px;height:34px;border-radius:10px;background:#e8f7f5;color:#078f83;display:grid;place-items:center;font-weight:900;flex-shrink:0}
+.arch-layer strong{display:block;color:var(--navy);font-size:14px}
+.arch-layer small{display:block;color:var(--muted);font-size:12px}
+.arch-arrow{text-align:center;color:#0ca99a;font-size:20px;height:12px;line-height:12px}
+.arch-layer.emphasis{border-color:#9edfd6;background:#f0fbf9}
+.arch-layer.security{background:#0d2a40;border-color:#0d2a40;color:#fff}
+.arch-layer.security strong,.arch-layer.security small{color:#fff}
+.arch-layer.security .idx{background:rgba(19,184,166,.18);color:var(--teal2)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.tab{border:1px solid var(--line);background:#fff;color:#607483;border-radius:12px;padding:9px 15px;font-size:12px}
+.tab.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.tabpanel{display:none}.tabpanel.active{display:block}
+.kpi-table{width:100%;border-collapse:collapse;background:#fff;border-radius:16px;overflow:hidden;font-size:12px}
+.kpi-table th{background:#0d2a40;color:#fff;text-align:right;padding:13px}
+.kpi-table td{padding:13px;border-bottom:1px solid var(--line);color:#455a68}
+.kpi-table tr:last-child td{border:0}
+.kpi-table td:first-child{font-weight:700;color:var(--navy)}
+.kpi-card{padding:18px;border-radius:16px;background:#fff;border:1px solid var(--line)}
+.kpi-card strong{display:block;color:var(--navy);font-size:14px;margin-bottom:5px}
+.kpi-card span{font-size:12px;color:var(--muted)}
+.phase-wrap{position:relative}
+.phase-line{position:absolute;top:24px;right:5%;left:5%;height:2px;background:#d9e7e9}
+.phases{display:grid;grid-template-columns:repeat(5,1fr);gap:13px;position:relative}
+.phase{text-align:center}
+.phase-dot{width:49px;height:49px;border-radius:16px;background:var(--navy);color:#fff;display:grid;place-items:center;margin:0 auto 15px;border:5px solid var(--paper);font-weight:900;position:relative}
+.phase:nth-child(2) .phase-dot,.phase:nth-child(4) .phase-dot{background:#087f78}
+.phase:nth-child(5) .phase-dot{background:#427ed4}
+.phase h3{font-size:14px;color:var(--navy);margin:0 0 5px}
+.phase .time{font-size:11px;color:#078f83;font-weight:800}
+.phase p{font-size:11px;color:var(--muted);margin:8px 0}
+.phase-detail{margin-top:20px;padding:22px;background:#fff;border:1px solid var(--line);border-radius:18px}
+.phase-detail h3{margin:0 0 8px;color:var(--navy)}
+.phase-detail p{margin:0;color:var(--muted);font-size:13px}
+.outcomes{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.outcome{background:#fff;border:1px solid var(--line);padding:17px;border-radius:16px}
+.outcome b{font-size:13px;color:var(--navy);display:block;margin-bottom:5px}
+.outcome span{font-size:11px;color:var(--muted)}
+.formula{background:linear-gradient(120deg,#09243a,#0d4352);color:#fff;border-radius:20px;padding:25px;text-align:center;margin-top:20px}
+.formula .eq{font-size:clamp(18px,3vw,26px);font-weight:800;direction:ltr;unicode-bidi:embed;margin:8px}
+.formula p{font-size:12px;color:#bfd3dc;margin:0}
+.benchmark{border-right:3px solid var(--teal);padding:3px 18px;margin:16px 0}
+.benchmark h3{font-size:15px;margin:0 0 4px;color:var(--navy)}
+.benchmark p{font-size:13px;color:var(--muted);margin:0}
+.references{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.ref{background:#fff;border:1px solid var(--line);border-radius:13px;padding:13px 16px;font-size:12px;color:#526775}
+.ref b{display:block;color:var(--navy);margin-bottom:3px}
+.accordion{border:1px solid var(--line);background:#fff;border-radius:15px;margin-bottom:10px;overflow:hidden}
+.accordion button{width:100%;border:0;background:transparent;text-align:right;padding:16px 19px;display:flex;justify-content:space-between;align-items:center;color:var(--navy);font-weight:800;font-size:14px}
+.accordion .content{display:none;padding:0 19px 18px;color:var(--muted);font-size:13px}
+.accordion.open .content{display:block}
+.accordion .plus{color:#0ba395;font-size:20px}
+.cta{background:linear-gradient(120deg,#0b2a40,#0d4b55);color:#fff;border-radius:24px;padding:36px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:25px}
+.cta h2{color:#fff;margin:0 0 8px}
+.cta p{color:#c5d8df;margin:0;font-size:13px;max-width:760px}
+.cta .btn{border-color:var(--teal);background:var(--teal);color:#062a32;font-weight:900;padding:12px 18px}
+.footer{background:#071b2b;color:#9bb1bd;padding:28px;text-align:center;font-size:11px}
+.footer strong{color:#fff}
+.backtop{position:fixed;bottom:22px;left:22px;width:43px;height:43px;border:0;border-radius:14px;background:var(--teal);color:#052a32;font-size:20px;box-shadow:var(--shadow);z-index:30}
+.progress{position:fixed;top:0;right:0;height:3px;background:var(--teal);width:0;z-index:100}
+.note{font-size:11px;color:#748894;margin-top:12px}
+@media(max-width:1000px){.nav{display:none}.grid.four{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:repeat(3,1fr)}.outcomes{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.topinner{padding:9px 15px}.brand{font-size:12px}.actions .btn:not(.primary){display:none}.hero-inner{padding:58px 20px}.wrap{padding:0 18px}.section{padding:54px 0}.section-head{display:block}.section-number{display:none}.grid.two,.grid.three,.grid.four{grid-template-columns:1fr}.problem-list{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.step{min-height:auto}.gov-columns{grid-template-columns:1fr}.phases{grid-template-columns:1fr}.phase-line{display:none}.phase{display:grid;grid-template-columns:55px 1fr;text-align:right;align-items:start;gap:8px}.phase-dot{grid-row:span 3;margin:0}.phase h3{margin-top:2px}.outcomes{grid-template-columns:repeat(2,1fr)}.references{grid-template-columns:1fr}.cta{grid-template-columns:1fr;padding:25px}.kpi-table{min-width:620px}.table-scroll{overflow-x:auto}.hero-meta{gap:18px}}
+@media print{
+ @page{size:A4;margin:14mm}
+ body{background:#fff;font-size:10pt;color:#172b3a}
+ .topbar,.backtop,.progress,.actions,.nav{display:none!important}
+ .hero{print-color-adjust:exact;-webkit-print-color-adjust:exact}
+ .hero-inner{padding:35px 25px}
+ .section{padding:30px 0;break-inside:avoid}
+ .card,.step,.phase,.accordion,.arch-layer{break-inside:avoid;box-shadow:none}
+ .wrap{max-width:none;padding:0 15px}
+ .accordion .content{display:block!important}
+ .section-number{display:none}
+ a{color:inherit}
+}
+
+/* ===== Presentation-grade infographic layer ===== */
+:root{
+ --teal-deep:#087f78;--blue-soft:#eaf1ff;--mint-soft:#e8f8f5;
+ --violet:#7b6de0;--coral:#e17c72;--amber:#d69b36;
+}
+.hero-inner{max-width:1360px;display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:46px;padding-top:72px;padding-bottom:72px}
+.hero-copy{position:relative;z-index:2}
+.hero-art{position:relative;min-height:430px;display:grid;place-items:center;isolation:isolate}
+.hero-art:before{content:"";position:absolute;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(19,184,166,.19),rgba(76,141,255,.07) 58%,transparent 70%);z-index:-1}
+.hero-art svg{width:min(100%,560px);height:auto;filter:drop-shadow(0 28px 45px rgba(0,0,0,.2))}
+.hero-stamp{position:absolute;bottom:20px;right:2%;padding:12px 17px;border:1px solid rgba(255,255,255,.17);background:rgba(255,255,255,.08);backdrop-filter:blur(12px);border-radius:16px;color:#dcebf0;font-size:11px}
+.hero-stamp b{display:block;color:#fff;font-size:14px}
+.visual-section{padding:24px 0 58px}
+.visual-panel{position:relative;overflow:hidden;border:1px solid #dce8eb;border-radius:26px;background:linear-gradient(135deg,#fff,#f4faf9);box-shadow:0 18px 48px rgba(8,35,53,.055);padding:26px}
+.visual-panel.dark-panel{background:linear-gradient(135deg,#09283d,#10475a);border-color:#17495a;color:#fff}
+.visual-head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;margin-bottom:18px}
+.visual-head h3{margin:0;color:var(--navy);font-size:18px}
+.visual-head p{margin:5px 0 0;color:var(--muted);font-size:12px;max-width:720px}
+.dark-panel .visual-head h3{color:#fff}.dark-panel .visual-head p{color:#bdd1da}
+.visual-label{font-size:10px;letter-spacing:.4px;font-weight:900;color:#079b8e;background:#e5f7f4;padding:6px 10px;border-radius:20px;white-space:nowrap}
+.diagram{width:100%;height:auto;display:block}
+.diagram text{font-family:"Vazirmatn",Tahoma,sans-serif}
+.visual-caption{font-size:11px;color:#758895;margin-top:12px;display:flex;align-items:center;gap:8px}
+.visual-caption:before{content:"";width:22px;height:2px;background:var(--teal);display:inline-block}
+.infographic-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;align-items:stretch}
+.metric-ribbon{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
+.metric-chip{background:#fff;border:1px solid var(--line);border-radius:15px;padding:13px}
+.metric-chip b{display:block;color:var(--navy);font-size:13px}
+.metric-chip span{font-size:10px;color:var(--muted)}
+.kpi-anatomy{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.kpi-anatomy div{padding:12px;border:1px solid rgba(255,255,255,.12);border-radius:13px;background:rgba(255,255,255,.055)}
+.kpi-anatomy b{display:block;color:#fff;font-size:12px}
+.kpi-anatomy span{display:block;color:#bad0d8;font-size:10px;margin-top:3px}
+.mini-flow{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:16px}
+.mini-flow span{padding:8px 12px;border-radius:10px;background:#eaf7f5;color:#126c68;font-size:11px;font-weight:800}
+.mini-flow i{font-style:normal;color:#13a99b}
+.value-loop{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;position:relative}
+.value-loop article{background:#fff;border:1px solid var(--line);border-radius:17px;padding:17px;position:relative}
+.value-loop article:not(:last-child):after{content:"←";position:absolute;left:-13px;top:38%;z-index:2;color:#0ba596;font-size:21px;font-weight:900}
+.value-loop .num{width:30px;height:30px;display:grid;place-items:center;background:#e6f8f5;color:#078c82;border-radius:10px;font-weight:900;margin-bottom:10px}
+.value-loop b{display:block;color:var(--navy);font-size:13px}
+.value-loop p{font-size:11px;color:var(--muted);margin:5px 0 0}
+.ai-ladder{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;align-items:end}
+.ai-step{padding:16px;border-radius:16px 16px 8px 8px;background:linear-gradient(160deg,#e8f7f5,#fff);border:1px solid #cce9e4;min-height:130px}
+.ai-step:nth-child(2){min-height:158px}.ai-step:nth-child(3){min-height:188px}.ai-step:nth-child(4){min-height:218px;background:linear-gradient(160deg,#eaf0ff,#fff);border-color:#d4defa}
+.ai-step small{font-size:10px;color:#0a978c;font-weight:900}
+.ai-step b{display:block;color:var(--navy);font-size:13px;margin:8px 0 4px}
+.ai-step p{font-size:10px;color:var(--muted);margin:0}
+.visual-note{border-right:3px solid var(--gold);background:#fff8e9;color:#72521d;border-radius:12px;padding:12px 15px;font-size:11px;margin-top:14px}
+.section .visual-section{padding-top:0}
+.note{line-height:1.9}
+.card,.step,.kpi-card,.outcome,.phase,.ref{transition:transform .25s ease,box-shadow .25s ease}
+.card:hover,.step:hover,.kpi-card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(8,35,53,.09)}
+.btn,.tab,.nav a{transition:all .2s ease}
+.btn:hover{transform:translateY(-1px)}
+.footer{line-height:2.1}
+@media(max-width:900px){
+ .hero-inner{grid-template-columns:1fr;gap:10px;padding-top:54px}
+ .hero-art{min-height:300px;max-width:650px;margin:auto;width:100%}
+ .infographic-grid{grid-template-columns:1fr}
+}
+@media(max-width:650px){
+ .hero-art{min-height:240px}
+ .hero-stamp{bottom:0}
+ .visual-panel{padding:17px;border-radius:19px}
+ .visual-head{display:block}.visual-label{display:inline-block;margin-top:8px}
+ .metric-ribbon{grid-template-columns:repeat(2,1fr)}
+ .value-loop{grid-template-columns:1fr 1fr}
+ .value-loop article:not(:last-child):after{display:none}
+ .ai-ladder{grid-template-columns:1fr 1fr;align-items:stretch}
+ .ai-step,.ai-step:nth-child(n){min-height:145px}
+}
+@media print{
+ .hero-inner{grid-template-columns:1fr .8fr;padding:34px 20px}
+ .hero-art{min-height:280px}
+ .visual-panel{box-shadow:none;break-inside:avoid}
+ .card:hover,.step:hover,.kpi-card:hover{transform:none;box-shadow:none}
+ .visual-section{padding:12px 0 24px}
+}
+
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<header class="topbar">
+ <div class="topinner">
+  <a class="brand" href="#top"><span class="brandmark">✦</span><span>تحول داده بیمارستان میلاد<small>چارچوب راهبردی و اجرایی</small></span></a>
+  <nav class="nav" aria-label="ناوبری اصلی">
+   <a href="#vision">چشم‌انداز</a><a href="#approach">رویکرد</a><a href="#governance">حاکمیت</a><a href="#architecture">معماری</a><a href="#kpis">شاخص‌ها</a><a href="#roadmap">نقشه راه</a><a href="#value">ارزش‌آفرینی</a><a href="#references">مراجع</a>
+  </nav>
+  <div class="actions"><button class="btn" onclick="window.print()">چاپ / PDF</button><a class="btn primary" href="#decision">چارچوب تصمیم</a></div>
+ </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+ <div class="hero-inner">
+  <div class="hero-copy">
+   <div class="eyebrow"><span class="dot"></span> چارچوب تحول سازمانی مبتنی بر داده</div>
+   <h1>از داده‌های پراکنده تا <span>تصمیم‌گیری هوشمند</span> در بیمارستان</h1>
+   <p>چارچوبی مرحله‌ای برای استقرار حاکمیت داده، توسعه هوش تجاری سازمانی و ایجاد زیرساخت تحلیلی قابل اعتماد؛ با تمرکز بر کیفیت مراقبت، ایمنی بیمار، بهره‌وری و پایداری مالی.</p>
+   <div class="hero-tags">
+    <span class="tag">Data Governance</span><span class="tag">Enterprise BI</span><span class="tag">Healthcare Analytics</span><span class="tag">AI Readiness</span>
+   </div>
+   <div class="hero-meta">
+    <div><strong>رویکرد</strong>مسئله‌محور و ارزش‌آفرین</div>
+    <div><strong>دامنه</strong>بالینی، عملیاتی، مالی و پشتیبانی</div>
+    <div><strong>مدل اجرا</strong>مرحله‌ای، قابل سنجش و توسعه‌پذیر</div>
+    <div><strong>نسخه</strong>چارچوب پیشنهادی برای بررسی مدیریتی</div>
+   </div>
+  </div>
+  <div class="hero-art" aria-label="تصویر مفهومی پیوند بیمارستان، داده و تصمیم‌گیری">
+   <svg viewBox="0 0 620 500" role="img" aria-label="اکوسیستم داده بیمارستان">
+    <defs>
+     <linearGradient id="hg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#19c7b2"/><stop offset="1" stop-color="#4c8dff"/></linearGradient>
+     <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffffff" stop-opacity=".19"/><stop offset="1" stop-color="#ffffff" stop-opacity=".04"/></linearGradient>
+     <filter id="glow"><feGaussianBlur stdDeviation="7"/></filter>
+    </defs>
+    <circle cx="310" cy="245" r="185" fill="none" stroke="#7ce3d6" stroke-opacity=".12" stroke-width="1.5" stroke-dasharray="5 10"/>
+    <circle cx="310" cy="245" r="135" fill="none" stroke="#8cb9ff" stroke-opacity=".18" stroke-width="1.5"/>
+    <circle cx="310" cy="245" r="75" fill="#16b8a7" opacity=".15" filter="url(#glow)"/>
+    <g stroke="#6fe0d2" stroke-opacity=".52" stroke-width="1.5" fill="none">
+     <path d="M310 245L130 112M310 245L486 110M310 245L520 310M310 245L350 435M310 245L105 355"/>
+     <path d="M130 112L486 110L520 310L350 435L105 355Z" stroke-opacity=".18" stroke-dasharray="4 7"/>
+    </g>
+    <g>
+     <rect x="215" y="126" width="190" height="238" rx="25" fill="url(#glass)" stroke="#9fece3" stroke-opacity=".55"/>
+     <rect x="244" y="154" width="132" height="180" rx="12" fill="#f4fbff" opacity=".96"/>
+     <path d="M283 154V334M337 154V334M244 210H376M244 274H376" stroke="#d5e6eb" stroke-width="1.2"/>
+     <path d="M283 188h54M310 176v25" stroke="#10a99c" stroke-width="8" stroke-linecap="round"/>
+     <rect x="258" y="225" width="32" height="33" rx="6" fill="#e3f7f3"/><rect x="298" y="225" width="62" height="33" rx="6" fill="#e8efff"/>
+     <path d="M258 291h103" stroke="#d1e1e7" stroke-width="5" stroke-linecap="round"/>
+     <path d="M258 305h73" stroke="#d1e1e7" stroke-width="5" stroke-linecap="round"/>
+     <path d="M310 365v22M279 387h62" stroke="#8ce5d9" stroke-width="5" stroke-linecap="round"/>
+    </g>
+    <g fill="#fff" stroke="#9ce9df" stroke-width="1.5">
+     <rect x="69" y="72" width="122" height="76" rx="16" fill="#103d52"/>
+     <rect x="427" y="72" width="122" height="76" rx="16" fill="#103d52"/>
+     <rect x="458" y="275" width="122" height="76" rx="16" fill="#103d52"/>
+     <rect x="289" y="396" width="122" height="76" rx="16" fill="#103d52"/>
+     <rect x="42" y="319" width="122" height="76" rx="16" fill="#103d52"/>
+    </g>
+    <g fill="#d8f4f0" font-size="13" font-weight="700" text-anchor="middle">
+     <text x="130" y="111">داده بالینی</text><text x="130" y="132" fill="#8bb7c4" font-size="10">HIS · EMR</text>
+     <text x="488" y="111">داده عملیاتی</text><text x="488" y="132" fill="#8bb7c4" font-size="10">Flow · Capacity</text>
+     <text x="519" y="314">داده مالی</text><text x="519" y="334" fill="#8bb7c4" font-size="10">Revenue · Cost</text>
+     <text x="350" y="438">تحلیل و AI</text><text x="350" y="458" fill="#8bb7c4" font-size="10">Analytics · AI</text>
+     <text x="103" y="358">حاکمیت داده</text><text x="103" y="378" fill="#8bb7c4" font-size="10">Quality · Trust</text>
+    </g>
+    <g fill="#6ce0d2">
+     <circle cx="130" cy="112" r="4"/><circle cx="488" cy="110" r="4"/><circle cx="520" cy="313" r="4"/><circle cx="350" cy="435" r="4"/><circle cx="104" cy="357" r="4"/>
+    </g>
+    <g transform="translate(268 50)">
+     <rect width="84" height="29" rx="14" fill="#13b8a6"/><text x="42" y="19" text-anchor="middle" font-size="10" fill="#062d35" font-weight="900">ONE VIEW</text>
+    </g>
+   </svg>
+   <div class="hero-stamp"><b>One Trusted View</b>یک تصویر مشترک، قابل اتکا و تصمیم‌ساز</div>
+  </div>
+ </div>
+</section>
+
+
+<section class="section" id="vision">
+ <div class="wrap">
+  <div class="section-head"><div><div class="kicker">01 / چشم‌انداز و ارزش پیشنهادی</div><h2>بیمارستان داده‌محور؛ فناوری در خدمت مراقبت بهتر</h2><p class="lead">هدف، صرفاً تولید داشبورد یا تجمیع سامانه‌ها نیست؛ هدف تبدیل داده‌های معتبر به بینش قابل اتکا و اقدام مؤثر در سطح بالینی، عملیاتی و مدیریتی است.</p></div><div class="section-number">01</div></div>
+  <div class="grid four">
+   <article class="card"><div class="icon">♡</div><h3>کیفیت و ایمنی بیمار</h3><p>تقویت پایش شاخص‌های کیفیت، شناسایی روندها و پشتیبانی از بهبود مستمر خدمات درمانی.</p></article>
+   <article class="card"><div class="icon">⌁</div><h3>جریان و دسترسی</h3><p>شفافیت در مسیر بیمار، زمان انتظار، ظرفیت تخت و گلوگاه‌های فرایندهای خدمت‌رسانی.</p></article>
+   <article class="card"><div class="icon">◈</div><h3>بهره‌وری و پایداری مالی</h3><p>تحلیل هزینه، درآمد، مطالبات، منابع و ظرفیت‌های عملیاتی برای تصمیم‌گیری آگاهانه‌تر.</p></article>
+   <article class="card"><div class="icon">✧</div><h3>آمادگی برای هوش مصنوعی</h3><p>ایجاد بنیان داده‌ای، معنایی و حاکمیتی پیش از توسعه تحلیل‌های پیشرفته و کاربردهای AI.</p></article>
+  </div>
+  <div class="callout"><strong>اصل راهبردی:</strong> انتخاب فناوری و ابزار باید پس از شناخت مسئله، فرایند، داده و سطح آمادگی بیمارستان انجام شود؛ نه برعکس.</div>
+ </div>
+</section>
+
+<section class="visual-section">
+ <div class="wrap">
+  <div class="visual-panel">
+   <div class="visual-head"><div><h3>نقشه ارزش؛ بیمار در مرکز اکوسیستم تصمیم‌گیری</h3><p>داده زمانی ارزشمند است که از چند حوزه به یک تصویر مشترک برسد و به تصمیم یا اقدام قابل سنجش منتهی شود.</p></div><span class="visual-label">VALUE MODEL</span></div>
+   <svg class="diagram" viewBox="0 0 1040 310" role="img" aria-label="مدل ارزش‌آفرینی داده در بیمارستان">
+    <defs><linearGradient id="vcore" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0ba99a"/><stop offset="1" stop-color="#427ed4"/></linearGradient></defs>
+    <g fill="none" stroke="#b9dcd8" stroke-width="2"><path d="M520 150L190 76M520 150L850 76M520 150L190 244M520 150L850 244"/></g>
+    <g>
+     <rect x="45" y="30" width="280" height="88" rx="18" fill="#eaf8f5" stroke="#c5e9e2"/><text x="185" y="64" text-anchor="middle" fill="#087f78" font-size="18" font-weight="800">کیفیت و ایمنی</text><text x="185" y="89" text-anchor="middle" fill="#59717b" font-size="12">پایش پیامدها و بهبود مراقبت</text>
+     <rect x="715" y="30" width="280" height="88" rx="18" fill="#edf2ff" stroke="#d6e0fb"/><text x="855" y="64" text-anchor="middle" fill="#3d67b7" font-size="18" font-weight="800">جریان و دسترسی</text><text x="855" y="89" text-anchor="middle" fill="#59717b" font-size="12">کاهش گلوگاه‌ها و انتظار</text>
+     <rect x="45" y="192" width="280" height="88" rx="18" fill="#fff5e7" stroke="#f0dfbd"/><text x="185" y="226" text-anchor="middle" fill="#a36c19" font-size="18" font-weight="800">پایداری مالی</text><text x="185" y="251" text-anchor="middle" fill="#59717b" font-size="12">شفافیت هزینه، درآمد و مطالبات</text>
+     <rect x="715" y="192" width="280" height="88" rx="18" fill="#f5efff" stroke="#e1d6f5"/><text x="855" y="226" text-anchor="middle" fill="#7555b5" font-size="18" font-weight="800">آمادگی دیجیتال و AI</text><text x="855" y="251" text-anchor="middle" fill="#59717b" font-size="12">زیرساخت اعتماد و تحلیل پیشرفته</text>
+    </g>
+    <circle cx="520" cy="150" r="83" fill="url(#vcore)"/><circle cx="520" cy="150" r="70" fill="none" stroke="#fff" stroke-opacity=".3"/>
+    <text x="520" y="140" text-anchor="middle" fill="#fff" font-size="20" font-weight="900">بیمار</text><text x="520" y="167" text-anchor="middle" fill="#e1fffa" font-size="13">و تجربه مراقبت</text>
+    <text x="520" y="295" text-anchor="middle" fill="#758895" font-size="11">محرک مشترک: داده معتبر ← بینش روشن ← تصمیم به‌موقع ← اقدام قابل ارزیابی</text>
+   </svg>
+  </div>
+ </div>
+</section>
+
+
+
+<section class="section white" id="context">
+ <div class="wrap">
+  <div class="section-head"><div><div class="kicker">02 / ضرورت و زمینه</div><h2>چرا مدیریت یکپارچه داده اهمیت دارد؟</h2><p class="lead">بیمارستان از شبکه‌ای از فرایندهای به‌هم‌پیوسته تشکیل شده است. ارزش داده زمانی آشکار می‌شود که اطلاعات این فرایندها با تعریف مشترک، کیفیت مناسب و دسترسی کنترل‌شده به یک تصویر منسجم تبدیل شوند.</p></div><div class="section-number">02</div></div>
+  <div class="grid two">
+   <div class="card dark"><div class="icon">?</div><h3>پرسش‌های مدیریتی کلیدی</h3><p>زمان انتظار بیماران در کدام مراحل بیشتر است؟ ظرفیت واقعی تخت‌ها چقدر است؟ چه عواملی ترخیص را به تأخیر می‌اندازند؟ عملکرد اتاق‌های عمل چگونه است؟ مطالبات بیمه‌ای در کدام نقاط متوقف می‌شوند؟ چه عواملی هزینه ارائه خدمت را افزایش می‌دهند؟</p></div>
+   <div class="card"><div class="icon">◎</div><h3>موضوعاتی که باید در مرحله شناخت راستی‌آزمایی شوند</h3><p>پراکندگی داده، تفاوت تعاریف شاخص‌ها، گزارش‌گیری دستی، ناهماهنگی زمان به‌روزرسانی، نبود مالکیت مشخص، دشواری ردیابی منشأ داده و محدودیت تحلیل بین‌حوزه‌ای.</p><p class="note">این موارد فرضیه‌های ارزیابی هستند، نه ادعای قطعی درباره وضعیت فعلی بیمارستان میلاد.</p></div>
+  </div>
+  <div class="problem-list" style="margin-top:18px">
+   <div class="problem"><b>01</b><span>سامانه‌های تخصصی متعدد و نیاز به تبادل کنترل‌شده اطلاعات</span></div>
+   <div class="problem"><b>02</b><span>تعاریف متفاوت از مفاهیم مشترک و شاخص‌های مدیریتی</span></div>
+   <div class="problem"><b>03</b><span>نیاز به سنجش کیفیت، منشأ و به‌موقع‌بودن داده‌ها</span></div>
+   <div class="problem"><b>04</b><span>ضرورت پیوند تحلیل‌های بالینی، عملیاتی و مالی با رعایت محرمانگی</span></div>
+  </div>
+ </div>
+</section>
+
+<section class="visual-section">
+ <div class="wrap">
+  <div class="visual-panel dark-panel">
+   <div class="visual-head"><div><h3>نقشه جریان بیمار؛ از ورود تا پیگیری</h3><p>اتصال داده‌های نقاط تماس بیمار، امکان مشاهده گلوگاه‌ها و سنجش عملکرد کل مسیر خدمت را فراهم می‌کند.</p></div><span class="visual-label">PATIENT JOURNEY</span></div>
+   <svg class="diagram" viewBox="0 0 1100 250" role="img" aria-label="نقشه مسیر بیمار در بیمارستان">
+    <defs><linearGradient id="journey" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#13b8a6"/><stop offset="1" stop-color="#5b9cff"/></linearGradient></defs>
+    <path d="M115 100H985" stroke="url(#journey)" stroke-width="5" stroke-linecap="round"/>
+    <g fill="#123e52" stroke="#73dfd3" stroke-width="2">
+     <circle cx="115" cy="100" r="35"/><circle cx="333" cy="100" r="35"/><circle cx="550" cy="100" r="35"/><circle cx="767" cy="100" r="35"/><circle cx="985" cy="100" r="35"/>
+    </g>
+    <g fill="#fff" font-size="21" text-anchor="middle" font-weight="800">
+     <text x="115" y="108">۱</text><text x="333" y="108">۲</text><text x="550" y="108">۳</text><text x="767" y="108">۴</text><text x="985" y="108">۵</text>
+    </g>
+    <g fill="#fff" font-size="15" font-weight="800" text-anchor="middle">
+     <text x="115" y="162">پذیرش</text><text x="333" y="162">تشخیص</text><text x="550" y="162">درمان</text><text x="767" y="162">ترخیص</text><text x="985" y="162">پیگیری</text>
+    </g>
+    <g fill="#b9d1da" font-size="11" text-anchor="middle">
+     <text x="115" y="185">ثبت هویت و نوبت</text><text x="333" y="185">آزمایش و تصویربرداری</text><text x="550" y="185">بستری و مداخله</text><text x="767" y="185">تسویه و خلاصه پرونده</text><text x="985" y="185">پیامد و بازگشت</text>
+    </g>
+    <g fill="#7de1d5" font-size="10" text-anchor="middle"><text x="224" y="67">زمان انتظار</text><text x="442" y="67">زمان پاسخ</text><text x="659" y="67">ظرفیت و ایمنی</text><text x="876" y="67">تأخیر ترخیص</text></g>
+    <rect x="250" y="218" width="600" height="24" rx="12" fill="#ffffff" fill-opacity=".08"/>
+    <text x="550" y="234" fill="#c6e7e5" text-anchor="middle" font-size="11">دیدگاه یکپارچه: بیمار، فرایند، ظرفیت، کیفیت و هزینه در یک مسیر قابل ردیابی</text>
+   </svg>
+   <div class="visual-caption" style="color:#b9d1da">نمای مفهومی؛ نقاط تماس و شاخص‌های واقعی در مرحله شناخت با فرایندهای بیمارستان تطبیق داده می‌شوند.</div>
+  </div>
+ </div>
+</section>
+
+
+
+<section class="section" id="approach">
+ <div class="wrap">
+  <div class="section-head"><div><div class="kicker">03 / چارچوب اجرایی</div><h2>مسیر پنج‌مرحله‌ای از مسئله تا ارزش</h2><p class="lead">هر مرحله خروجی مشخص دارد و ورودی مرحله بعد را فراهم می‌کند. این ساختار مانع از پراکندگی فعالیت‌ها و شروع زودهنگام پروژه‌های فناورانه بدون شناخت کافی می‌شود.</p></div><div class="section-number">03</div></div>
+  <div class="steps">
+   <article class="step"><div class="n">۱</div><h3>شناخت مسئله</h3><p>مصاحبه با مدیران، شناسایی نیازهای تصمیم‌گیری، مسائل واقعی و اولویت‌بندی فرصت‌ها.</p><small>Problem Discovery</small></article>
+   <article class="step"><div class="n">۲</div><h3>شناخت زمینه</h3><p>ترسیم فرایندها، سامانه‌ها، منابع داده، وابستگی‌ها و محدودیت‌های سازمانی و فنی.</p><small>Context Understanding</small></article>
+   <article class="step"><div class="n">۳</div><h3>ارزیابی آمادگی</h3><p>سنجش بلوغ حاکمیت، کیفیت، معماری، امنیت، نیروی انسانی و مدیریت تغییر.</p><small>Readiness Assessment</small></article>
+   <article class="step"><div class="n">۴</div><h3>طراحی راهکار</h3><p>طراحی معماری هدف، مدل داده، شاخص‌ها، گزینه‌های فناوری، منابع و معیارهای پذیرش.</p><small>Solution Architecture</small></article>
+   <article class="step"><div class="n">۵</div><h3>تحقق ارزش</h3><p>اجرای پایلوت، سنجش خط مبنا، ارزیابی نتایج و توسعه تدریجی راهکارهای موفق.</p><small>Value Realization</small></article>
+  </div>
+  <div class="callout"><strong>قاعده تصمیم‌گیری:</strong> هر پروژه باید به مسئله‌ای روشن، مالک مشخص، داده قابل دسترس، شاخص سنجش و اقدام مورد انتظار متصل باشد.</div>
+ </div>
+</section>
+
+<section class="section white" id="governance">
+ <div class="wrap">
+  <div class="section-head"><div><div class="kicker">04 / مدل عملیاتی و پاسخ‌گویی</div><h2>حاکمیت داده؛ مسئولیت مشترک، تصمیم‌گیری روشن</h2><p class="lead">حاکمیت داده فقط تمرکز اطلاعات در فناوری اطلاعات نیست؛ مجموعه‌ای از حقوق تصمیم‌گیری، مسئولیت‌ها، تعاریف، قواعد کیفیت و سازوکارهای نظارت در سراسر بیمارستان است.</p></div><div class="section-number">04</div></div>
+  <div class="governance">
+   <div class="gov-level primary"><strong>کمیته راهبری تحول داده</strong><span>حمایت مدیریت ارشد، تصویب اولویت‌ها، رفع موانع و نظارت بر تحقق ارزش</span></div>
+   <div class="gov-connect">↓</div>
+   <div class="gov-level secondary"><strong>شورای حاکمیت داده</strong><span>سیاست‌ها، استانداردها، تعاریف مشترک، کیفیت، دسترسی و حل اختلافات داده‌ای</span></div>
+   <div class="gov-connect">↓</div>
+   <div class="gov-columns">
+    <div class="gov-level"><strong>مالکان داده</strong><span>پاسخ‌گویی نسبت به تعریف و کیفیت داده در حوزه تخصصی</span></div>
+    <div class="gov-level"><strong>متولیان داده</strong><span>کنترل اجرایی، مستندسازی و پیگیری قواعد داده</span></div>
+    <div class="gov-level"><strong>تیم داده و فناوری</strong><span>معماری، یکپارچه‌سازی، زیرساخت، تحلیل و ابزارها</span></div>
+   </div>
+  </div>
+  <div class="grid three" style="margin-top:20px">
+   <article class="card"><h3>مالکیت داده | Data Ownership</h3><p>تعیین مسئول سازمانی پاسخ‌گو برای تعریف، کیفیت و استفاده صحیح از داده‌های هر حوزه.</p></article>
+   <article class="card"><h3>سرپرستی داده | Stewardship</h3><p>نظارت اجرایی بر تعاریف، قواعد کیفیت، مستندسازی و رفع مغایرت‌ها.</p></article>
+   <article class="card"><h3>مدیریت فراداده و تبارشناسی</h3><p>ثبت معنا، ساختار، منشأ، مسیر تبدیل و وابستگی داده تا گزارش یا شاخص نهایی.</p></article>
+   <article class="card"><h3>کیفیت داده</h3><p>کنترل صحت، کامل‌بودن، سازگاری، یکتایی، اعتبار و به‌موقع‌بودن اطلاعات.</p></article>
+   <article class="card"><h3>داده‌های مرجع و اصلی</h3><p>همسان‌سازی شناسه‌ها، طبقه‌بندی‌ها، واژگان و موجودیت‌های مشترک.</p></article>
+   <article class="card"><h3>چرخه عمر و دسترسی</h3><p>قواعد تولید، نگهداری، آرشیو، حذف، سطح‌بندی و استفاده مجاز از داده.</p></article>
+  </div>
+  <div class="callout"><strong>ملاحظه بالینی:</strong> مالکیت معنایی و تخصصی داده‌های بالینی باید نزد صاحبان صلاحیت بالینی باقی بماند. تیم داده و فناوری زیرساخت و ابزار را فراهم می‌کند، اما جایگزین مسئولیت حرفه‌ای پزشکان و مدیران درمان نمی‌شود.</div>
+  <p class="note">در مرحله نخست می‌توان مسئول راهبری داده و هوش تجاری یا تیم کوچک راهبری ایجاد کرد. توسعه آن به Data Office یا جایگاه CDO باید متناسب با بلوغ، دامنه مأموریت و اختیارات مورد نیاز بررسی شود.</p>
+ </div>
+</section>
+
+<div class="visual-section">
+ <div class="visual-panel">
+  <div class="visual-head"><div><h3>مدل عملیاتی حاکمیت داده؛ از تصمیم تا اجرا</h3><p>سیاست‌گذاری، پاسخ‌گویی تخصصی و اجرای فنی در یک چرخه روشن به هم متصل می‌شوند.</p></div><span class="visual-label">OPERATING MODEL</span></div>
+  <svg class="diagram" viewBox="0 0 1040 300" role="img" aria-label="مدل عملیاتی حاکمیت داده">
+   <defs><linearGradient id="govg" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#0d3148"/><stop offset="1" stop-color="#0a8e85"/></linearGradient></defs>
+   <rect x="300" y="12" width="440" height="57" rx="15" fill="url(#govg)"/>
+   <text x="520" y="37" text-anchor="middle" fill="#fff" font-size="16" font-weight="900">کمیته راهبری تحول داده</text><text x="520" y="55" text-anchor="middle" fill="#d1f4ef" font-size="10">حمایت، اولویت‌گذاری، رفع موانع و نظارت بر ارزش</text>
+   <path d="M520 69V92" stroke="#0b9f94" stroke-width="3"/><path d="M512 85L520 94L528 85" fill="none" stroke="#0b9f94" stroke-width="3"/>
+   <rect x="270" y="96" width="500" height="55" rx="14" fill="#e6f7f4" stroke="#bde8e1"/>
+   <text x="520" y="120" text-anchor="middle" fill="#087f78" font-size="16" font-weight="900">شورای حاکمیت داده</text><text x="520" y="139" text-anchor="middle" fill="#54727a" font-size="10">سیاست‌ها، تعاریف، کیفیت، دسترسی و حل اختلاف</text>
+   <path d="M520 151V178M170 178H870M170 178V197M403 178V197M637 178V197M870 178V197" stroke="#8bcfc7" stroke-width="2.5" fill="none"/>
+   <g>
+    <rect x="65" y="200" width="210" height="72" rx="13" fill="#f0f5ff" stroke="#d8e2fb"/><text x="170" y="228" text-anchor="middle" fill="#3e64ac" font-size="14" font-weight="800">مالکان داده</text><text x="170" y="249" text-anchor="middle" fill="#667b88" font-size="10">پاسخ‌گویی تخصصی</text>
+    <rect x="298" y="200" width="210" height="72" rx="13" fill="#fff5e8" stroke="#f1dfbd"/><text x="403" y="228" text-anchor="middle" fill="#a36c19" font-size="14" font-weight="800">متولیان داده</text><text x="403" y="249" text-anchor="middle" fill="#667b88" font-size="10">قواعد و کیفیت روزمره</text>
+    <rect x="532" y="200" width="210" height="72" rx="13" fill="#eaf8f5" stroke="#ccebe5"/><text x="637" y="228" text-anchor="middle" fill="#087f78" font-size="14" font-weight="800">تیم داده و فناوری</text><text x="637" y="249" text-anchor="middle" fill="#667b88" font-size="10">معماری و توانمندسازی</text>
+    <rect x="765" y="200" width="210" height="72" rx="13" fill="#f5efff" stroke="#e2d8f5"/><text x="870" y="228" text-anchor="middle" fill="#7555b5" font-size="14" font-weight="800">مصرف‌کنندگان داده</text><text x="870" y="249" text-anchor="middle" fill="#667b88" font-size="10">تصمیم و بازخورد</text>
+   </g>
+  </svg>
+  <div class="visual-caption">مدل پیشنهادی و قابل تطبیق با ساختار سازمانی؛ نقش‌ها باید با اختیار، پاسخ‌گویی و منابع متناسب تعریف شوند.</div>
+ </div>
+</div>
+
+
+
+<section class="section" id="domains">
+ <div class="wrap">
+  <div class="section-head"><div><div class="kicker">05 / حوزه‌های کاربرد</div><h2>دامنه‌های ارزش‌آفرینی در بیمارستان</h2><p class="lead">حوزه‌ها به‌صورت بالقوه معرفی شده‌اند؛ انتخاب پایلوت و ترتیب توسعه، پس از شناخت اولویت‌های بیمارستان و ارزیابی آمادگی داده انجام می‌شود.</p></div><div class="section-number">05</div></div>
+  <div class="grid three">
+   <article class="card"><div class="icon">✚</div><h3>بالینی، کیفیت و ایمنی</h3><p>شاخص‌های کیفیت، عفونت‌های مرتبط با مراقبت، رخدادهای دارویی، بستری مجدد و تحلیل پیامدها با تعدیل عوامل بالینی.</p></article>
+   <article class="card"><div class="icon">⇄</div><h3>پذیرش و جریان بیمار</h3><p>زمان انتظار، مدت اقامت، ظرفیت تخت فعال، گردش تخت، تأخیر ترخیص و جریان بین واحدها.</p></article>
+   <article class="card"><div class="icon">▦</div><h3>اتاق عمل و تشخیص</h3><p>بهره‌برداری اتاق عمل، شروع به‌موقع، لغو اعمال، گردش اتاق و زمان پاسخ خدمات تشخیصی.</p></article>
+   <article class="card"><div class="icon">◉</div><h3>مالی و چرخه درآمد</h3><p>صورتحساب، اسناد برگشتی، مطالبات بیمه‌ای، زمان وصول، هزینه خدمت و تحلیل درآمد.</p></article>
+   <article class="card"><div class="icon">▤</div><h3>دارو و زنجیره تأمین</h3><p>موجودی، کمبود اقلام حیاتی، تاریخ انقضا، گردش موجودی، مصرف و زمان تأمین.</p></article>
+   <article class="card"><div class="icon">♙</div><h3>منابع انسانی و پشتیبانی</h3><p>ظرفیت نیروی انسانی، بار کاری، اضافه‌کاری، آماده‌به‌کاری تجهیزات و بهره‌وری خدمات پشتیبانی.</p></article>
+  </div>
+ </div>
+</section>
+
+<section class="section white" id="architecture">
+ <div class="wrap">
+  <div class="section-head"><div><div class="kicker">06 / معماری داده و هوش تجاری</div><h2>معماری لایه‌ای، امن و توسعه‌پذیر</h2><p class="lead">معماری باید با توجه به حوزه‌های موضوعی، منابع، کیفیت، دانه‌بندی، تناوب به‌روزرسانی، بارکاری و الزامات محرمانگی طراحی شود؛ نه صرفاً بر اساس تعداد جداول یا حجم داده.</p></div><div class="section-number">06</div></div>
+  <div class="arch">
+   <div class="arch-layer"><span class="idx">۱</span><div><strong>سامانه‌های مبدأ</strong><small>HIS / EMR-EHR / LIS / RIS-PACS / داروخانه / مالی / منابع انسانی / بیمه و سامانه‌های تخصصی</small></div></div>
+   <div class="arch-arrow">↓</div>
+   <div class="arch-layer"><span class="idx">۲</span><div><strong>یکپارچه‌سازی و تبادل اطلاعات</strong><small>API، تبادل فایل، پایگاه داده واسط و استانداردهای تبادل سلامت متناسب با قابلیت سامانه‌ها</small></div></div>
+   <div class="arch-arrow">↓</div>
+   <div class="arch-layer"><span class="idx">۳</span><div><strong>آماده‌سازی و کنترل کیفیت داده</strong><small>اعتبارسنجی، پاک‌سازی، تطبیق، استانداردسازی، داده مرجع و مدیریت فراداده</small></div></div>
+   <div class="arch-arrow">↓</div>
+   <div class="arch-layer emphasis"><span class="idx">۴</span><div><strong>انبار داده سازمانی و لایه تحلیلی</strong><small>Enterprise Data Warehouse / Data Marts / مدل‌سازی موضوعی / داده تاریخی و قابل ردیابی</small></div></div>
+   <div class="arch-arrow">↓</div>
+   <div class="arch-layer"><span class="idx">۵</span><div><strong>مدل معنایی و شاخص‌های سازمانی</strong><small>تعاریف مشترک، قواعد محاسبه، KPIهای مصوب و منطق کسب‌وکاری مورد توافق</small></div></div>
+   <div class="arch-arrow">↓</div>
+   <div class="arch-layer"><span class="idx">۶</span><div><strong>هوش تجاری، تحلیل و پایش</strong><small>گزارش‌های مدیریتی، تحلیل روند، داشبوردهای تخصصی و پایش عملیاتی متناسب با نیاز</small></div></div>
+   <div class="arch-layer security"><span class="idx">✓</span><div><strong>امنیت، حاکمیت و تبارشناسی؛ در تمام لایه‌ها</strong><small>کنترل دسترسی، محرمانگی، ثبت رویداد، کیفیت، مستندسازی و ردیابی منشأ داده</small></div></div>
+  </div>
+  <div class="grid two" style="margin-top:22px">
+   <div class="card"><h3>الگوهای معماری</h3><p>مدل‌سازی Kimball، ابعاد همسان و Data Mart می‌توانند توسعه تدریجی را تسهیل کنند. Data Vault 2.0 و Lakehouse نیز در سناریوهای متناسب قابل بررسی‌اند؛ این الگوها جایگزین مطلق یکدیگر نیستند.</p></div>
+   <div class="card"><h3>استانداردهای تبادل سلامت</h3><p>HL7/FHIR برای تبادل اطلاعات سلامت، DICOM برای تصاویر پزشکی و واژگان/طبقه‌بندی‌هایی مانند ICD، LOINC و SNOMED CT در صورت تناسب، دسترس‌پذیری و امکان بومی‌سازی قابل ارزیابی‌اند.</p></div>
+  </div>
+  <div class="callout"><strong>BI در برابر پایش:</strong> هوش تجاری تحلیل داده‌های تاریخی و جاری، روندها و مقایسه عملکرد را پوشش می‌دهد. پایش عملیاتی بر وضعیت جاری و هشدار به‌موقع تمرکز دارد. به‌روزرسانی نزدیک به زمان واقعی فقط در فرایندهایی لازم است که تأخیر اطلاعات در آن‌ها پیامد عملیاتی مهمی دارد.</div>
+ </div>
+</section>
+
+<div class="visual-section">
+ <div class="visual-panel">
+  <div class="visual-head"><div><h3>نمای یکپارچه معماری هدف؛ از سامانه مبدأ تا تصمیم مدیریتی</h3><p>لایه‌های فنی در امتداد جریان داده قرار می‌گیرند و حاکمیت، امنیت و کیفیت به‌صورت سراسری بر آن‌ها اعمال می‌شود.</p></div><span class="visual-label">TARGET ARCHITECTURE</span></div>
+  <svg class="diagram" viewBox="0 0 1100 330" role="img" aria-label="معماری هدف داده و هوش تجاری بیمارستان">
+   <defs><linearGradient id="archbar" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#0d3148"/><stop offset="1" stop-color="#138e87"/></linearGradient></defs>
+   <g font-size="12" text-anchor="middle" font-weight="800">
+    <rect x="20" y="38" width="150" height="92" rx="14" fill="#eef3f6" stroke="#dce6ea"/><text x="95" y="72" fill="#18394c">سامانه‌های مبدأ</text><text x="95" y="95" fill="#718590" font-size="10">HIS · LIS · RIS</text><text x="95" y="112" fill="#718590" font-size="10">مالی · دارو · HR</text>
+    <rect x="205" y="38" width="150" height="92" rx="14" fill="#e9f5ff" stroke="#d4e7f5"/><text x="280" y="72" fill="#28638a">تبادل و یکپارچه‌سازی</text><text x="280" y="95" fill="#718590" font-size="10">API · HL7/FHIR</text><text x="280" y="112" fill="#718590" font-size="10">ETL/ELT · Staging</text>
+    <rect x="390" y="38" width="150" height="92" rx="14" fill="#e8f8f5" stroke="#ccebe5"/><text x="465" y="72" fill="#087f78">کیفیت و آماده‌سازی</text><text x="465" y="95" fill="#718590" font-size="10">Validation · MDM</text><text x="465" y="112" fill="#718590" font-size="10">Metadata · Rules</text>
+    <rect x="575" y="38" width="150" height="92" rx="14" fill="#eaf0ff" stroke="#d6e0fb"/><text x="650" y="72" fill="#3d67b7">انبار داده</text><text x="650" y="95" fill="#718590" font-size="10">EDW · Data Marts</text><text x="650" y="112" fill="#718590" font-size="10">History · Traceability</text>
+    <rect x="760" y="38" width="150" height="92" rx="14" fill="#fff5e8" stroke="#f1dfbd"/><text x="835" y="72" fill="#a36c19">لایه معنایی</text><text x="835" y="95" fill="#718590" font-size="10">KPI · Business Rules</text><text x="835" y="112" fill="#718590" font-size="10">Certified Metrics</text>
+    <rect x="945" y="38" width="135" height="92" rx="14" fill="#f4efff" stroke="#e2d8f5"/><text x="1012" y="72" fill="#7555b5">مصرف و اقدام</text><text x="1012" y="95" fill="#718590" font-size="10">BI · Analytics</text><text x="1012" y="112" fill="#718590" font-size="10">Monitoring</text>
+   </g>
+   <g stroke="#0aa497" stroke-width="3" fill="none"><path d="M171 84H199M356 84H384M541 84H569M726 84H754M911 84H939"/><path d="M191 77L199 84L191 91M376 77L384 84L376 91M561 77L569 84L561 91M746 77L754 84L746 91M931 77L939 84L931 91"/></g>
+   <rect x="20" y="166" width="1060" height="47" rx="13" fill="url(#archbar)"/>
+   <text x="550" y="195" text-anchor="middle" fill="#fff" font-size="15" font-weight="900">لایه‌های سراسری: حاکمیت داده · امنیت و محرمانگی · کیفیت · فراداده و تبارشناسی · پایش و ممیزی</text>
+   <g>
+    <rect x="20" y="240" width="335" height="65" rx="13" fill="#f6f9fa" stroke="#dce6ea"/><text x="187" y="266" text-anchor="middle" fill="#17384a" font-size="13" font-weight="800">معماری اطلاعات سلامت</text><text x="187" y="287" text-anchor="middle" fill="#718590" font-size="10">استاندارد تبادل، شناسه‌ها و واژگان</text>
+    <rect x="382" y="240" width="335" height="65" rx="13" fill="#f6f9fa" stroke="#dce6ea"/><text x="549" y="266" text-anchor="middle" fill="#17384a" font-size="13" font-weight="800">معماری زیرساخت و عملیات</text><text x="549" y="287" text-anchor="middle" fill="#718590" font-size="10">مقیاس‌پذیری، پایداری، بازیابی و کارایی</text>
+    <rect x="745" y="240" width="335" height="65" rx="13" fill="#f6f9fa" stroke="#dce6ea"/><text x="912" y="266" text-anchor="middle" fill="#17384a" font-size="13" font-weight="800">معماری مصرف و تصمیم</text><text x="912" y="287" text-anchor="middle" fill="#718590" font-size="10">داشبورد نقش‌محور، تحلیل و گردش اقدام</text>
+   </g>
+  </svg>
+  <div class="visual-caption">نمای مفهومی معماری؛ انتخاب فناوری، الگوی ذخیره‌سازی و تناوب بارگذاری پس از ارزیابی وضع موجود انجام می‌شود.</div>
+ </div>
+</div>
+
+
+
+<section class="section" id="kpis">
+ <div class="wrap">
+  <div class="section-head"><div><div class="kicker">07 / نظام شاخص‌ها</div><h2>هر شاخص، یک تعریف مصوب و قابل ردیابی</h2><p class="lead">شناسنامه شاخص مانع از محاسبه چندگانه یک مفهوم با تعاریف متفاوت می‌شود و ارتباط عدد گزارش‌شده با تصمیم مدیریتی را روشن می‌کند.</p></div><div class="section-number">07</div></div>
+  <div class="grid two">
+   <div class="card dark"><div class="icon">▣</div><h3>شناسنامه KPI چه چیزی را روشن می‌کند؟</h3><p>شاخص برای پاسخ به کدام پرسش طراحی شده است؟ چه چیزی در صورت و مخرج قرار می‌گیرد؟ جامعه آماری چیست؟ داده از کجا می‌آید؟ چه کسی مالک آن است؟ هر چند وقت به‌روزرسانی می‌شود؟ چه کیفیتی باید داشته باشد؟ چه تصمیمی بر اساس آن اتخاذ خواهد شد؟</p></div>
+   <div class="grid two">
+    <div class="kpi-card"><strong>تعریف و فرمول</strong><span>نام، شناسه، هدف، دامنه، صورت و مخرج</span></div>
+    <div class="kpi-card"><strong>دامنه محاسبه</strong><span>جامعه، ورود و خروج رکوردها، دانه‌بندی</span></div>
+    <div class="kpi-card"><strong>مالکیت و منبع</strong><span>مالک، متولی، منبع و تبارشناسی</span></div>
+    <div class="kpi-card"><strong>کنترل و اقدام</strong><span>کیفیت، تناوب، هدف و اقدام مرتبط</span></div>
+   </div>
+  </div>
+  <div class="tabs" style="margin-top:28px">
+   <button class="tab active" type="button" aria-selected="true" data-tab="clinical">بالینی و ایمنی</button>
+   <button class="tab" type="button" aria-selected="false" data-tab="flow">جریان بیمار</button>
+   <button class="tab" type="button" aria-selected="false" data-tab="finance">مالی</button>
+   <button class="tab" type="button" aria-selected="false" data-tab="resources">منابع و پشتیبانی</button>
+  </div>
+  <div class="tabpanel active" id="clinical"><div class="grid three"><div class="kpi-card"><strong>نرخ بستری مجدد</strong><span>با تعیین بازه زمانی، شرایط ورود و تعدیل متناسب با ترکیب بیماران.</span></div><div class="kpi-card"><strong>رخدادهای دارودرمانی</strong><span>با تعریف نوع رخداد و مخرج معتبر مانند تعداد تجویز یا تجویزهای انجام‌شده.</span></div><div class="kpi-card"><strong>عفونت‌های مرتبط با مراقبت</strong><span>با تعریف مورد، محل، بازه و مخرج تخصصی مانند device-days در صورت اقتضا.</span></div></div></div>
+  <div class="tabpanel" id="flow"><div class="grid three"><div class="kpi-card"><strong>زمان انتظار تا خدمت</strong><span>تعریف دقیق نقطه آغاز و پایان سنجش انتظار.</span></div><div class="kpi-card"><strong>نرخ اشغال تخت</strong><span>محاسبه بر اساس تخت فعال و قابل استفاده، نه ظرفیت اسمی.</span></div><div class="kpi-card"><strong>مدت اقامت</strong><span>تفکیک بر اساس نوع خدمت و ترکیب بیماران برای مقایسه معتبر.</span></div></div></div>
+  <div class="tabpanel" id="finance"><div class="grid three"><div class="kpi-card"><strong>نرخ برگشت اسناد بیمه‌ای</strong><span>تفکیک دلایل برگشت و تعیین دامنه اسناد مشمول.</span></div><div class="kpi-card"><strong>متوسط زمان وصول مطالبات</strong><span>تعریف نقطه آغاز چرخه و نقطه وصول قطعی.</span></div><div class="kpi-card"><strong>هزینه ارائه خدمت</strong><span>روش تخصیص هزینه و سطح تحلیل باید مصوب باشد.</span></div></div></div>
+  <div class="tabpanel" id="resources"><div class="grid three"><div class="kpi-card"><strong>کمبود اقلام حیاتی</strong><span>فهرست اقلام حیاتی و دوره پایش مشخص باشد.</span></div><div class="kpi-card"><strong>گردش موجودی</strong><span>تعریف موجودی، مصرف و دوره محاسبه یکسان باشد.</span></div><div class="kpi-card"><strong>آماده‌به‌کاری تجهیزات</strong><span>زمان توقف، تعمیر و دسترس‌پذیری عملیاتی تفکیک شود.</span></div></div></div>
+  <p class="note">نمونه‌ها پیشنهادی‌اند و پیش از استفاده رسمی باید با مشارکت مالک تخصصی شاخص تعریف و تصویب شوند.</p>
+ </div>
+</section>
+
+<div class="visual-section">
+ <div class="infographic-grid">
+  <div class="visual-panel dark-panel">
+   <div class="visual-head"><div><h3>شناسنامه شاخص؛ از عدد تا تصمیم</h3><p>هر KPI باید هویت، منطق محاسبه، مالک، منبع و اقدام متناظر داشته باشد.</p></div><span class="visual-label">KPI PASSPORT</span></div>
+   <div class="kpi-anatomy">
+    <div><b>شناسه و تعریف</b><span>نام یکتا، هدف و پرسش مدیریتی</span></div>
+    <div><b>فرمول و دامنه</b><span>صورت، مخرج، فیلترها و دانه‌بندی</span></div>
+    <div><b>مالک و متولی</b><span>مسئول معنایی و کنترل اجرایی</span></div>
+    <div><b>منبع و تبار</b><span>سامانه مبدأ تا مدل و گزارش</span></div>
+    <div><b>کیفیت و تناوب</b><span>قواعد اعتبارسنجی و زمان به‌روزرسانی</span></div>
+    <div><b>هدف و اقدام</b><span>حد انتظار، هشدار و پاسخ مدیریتی</span></div>
+   </div>
+   <div class="mini-flow"><span>منبع داده</span><i>←</i><span>قاعده محاسبه</span><i>←</i><span>شاخص مصوب</span><i>←</i><span>تصمیم</span></div>
+  </div>
+  <div class="visual-panel">
+   <div class="visual-head"><div><h3>نمونه مفهومی کارت KPI</h3><p>اعداد زیر صرفاً نمایشی‌اند و داده واقعی بیمارستان نیستند.</p></div><span class="visual-label">ILLUSTRATIVE</span></div>
+   <div style="background:#f6f9fa;border:1px solid #e1e9ec;border-radius:17px;padding:17px">
+    <div style="display:flex;justify-content:space-between;gap:10px;align-items:center"><span class="pill">FLOW-001</span><span style="font-size:10px;color:#718590">ماهانه | نمونه</span></div>
+    <div style="font-size:13px;font-weight:900;color:#0d2a40;margin-top:14px">میانگین زمان انتظار تا پذیرش</div>
+    <div style="display:flex;align-items:end;gap:10px;margin:8px 0 12px"><strong style="font-size:34px;color:#087f78;line-height:1.2">۲۸</strong><span style="font-size:12px;color:#647887">دقیقه · مقدار نمونه</span></div>
+    <div style="height:8px;background:#e4ecef;border-radius:10px;overflow:hidden"><div style="height:100%;width:62%;background:linear-gradient(90deg,#13b8a6,#4c8dff);border-radius:10px"></div></div>
+    <div style="display:flex;justify-content:space-between;font-size:10px;color:#718590;margin-top:7px"><span>خط مبنا: پس از اندازه‌گیری</span><span>هدف: پس از تصویب</span></div>
+    <div style="border-top:1px solid #e1e9ec;margin-top:15px;padding-top:12px;font-size:10px;color:#647887">مالک: واحد پذیرش و مدیریت فرایند | منبع: سامانه پذیرش | قاعده: تعیین دقیق زمان شروع و پایان</div>
+   </div>
+   <div class="visual-note">نمایش KPI بدون تعریف دامنه، مخرج معتبر، مالک و منشأ داده می‌تواند به برداشت نادرست منجر شود.</div>
+  </div>
+ </div>
+</div>
+
+
+
+<section class="section white" id="roadmap">
+ <div class="wrap">
+  <div class="section-head"><div><div class="kicker">08 / نقشه راه</div><h2>تحویل مرحله‌ای؛ از شناخت تا تحلیل پیشرفته</h2><p class="lead">زمان‌بندی زیر تخمینی و برای برنامه‌ریزی اولیه است؛ مدت قطعی پس از بررسی سامانه‌ها، دسترسی‌ها، منابع و پیچیدگی فرایندها تعیین می‌شود.</p></div><div class="section-number">08</div></div>
+  <div class="phase-wrap">
+   <div class="phase-line"></div>
+   <div class="phases">
+    <div class="phase"><div class="phase-dot">۰</div><h3>آغاز و مأموریت</h3><div class="time">۲ تا ۳ هفته</div><p>حامی اجرایی، مسئول برنامه، منشور و دسترسی‌ها</p></div>
+    <div class="phase"><div class="phase-dot">۱</div><h3>شناخت و ارزیابی</h3><div class="time">۴ تا ۶ هفته</div><p>فرایندها، سامانه‌ها، داده، بلوغ و شکاف‌ها</p></div>
+    <div class="phase"><div class="phase-dot">۲</div><h3>پایلوت</h3><div class="time">۸ تا ۱۲ هفته</div><p>شاخص مصوب، مدل داده، داشبورد و سنجش نتیجه</p></div>
+    <div class="phase"><div class="phase-dot">۳</div><h3>توسعه سازمانی</h3><div class="time">۳ تا ۶ ماه</div><p>گسترش معماری، حوزه‌ها، کیفیت و حاکمیت</p></div>
+    <div class="phase"><div class="phase-dot">۴</div><h3>تحلیل پیشرفته و AI</h3><div class="time">پس از بلوغ اولیه</div><p>پیش‌بینی، کشف الگو و پشتیبانی هوشمند</p></div>
+   </div>
+  </div>
+  <div class="phase-detail"><h3>دروازه عبور بین فازها</h3><p>ورود به هر مرحله بعدی منوط به پذیرش خروجی مرحله قبل، تأیید مالک فرایند، کیفیت قابل قبول داده، روشن‌بودن مسئولیت‌ها و تصویب منابع مورد نیاز است.</p></div>
+ </div>
+</section>
+
+<div class="visual-section">
+ <div class="visual-panel">
+  <div class="visual-head"><div><h3>خروجی‌های قابل تحویل و دروازه‌های تصمیم</h3><p>پیشرفت برنامه با تحویل‌دادنی‌های قابل پذیرش سنجیده می‌شود، نه صرفاً با گذشت زمان یا نصب ابزار.</p></div><span class="visual-label">DELIVERY GATES</span></div>
+  <svg class="diagram" viewBox="0 0 1060 230" role="img" aria-label="خروجی‌های مراحل برنامه تحول داده">
+   <path d="M90 78H970" stroke="#c9dcdf" stroke-width="4" stroke-linecap="round"/>
+   <g>
+    <g transform="translate(90 78)"><circle r="22" fill="#0d3148"/><text y="6" text-anchor="middle" fill="#fff" font-size="14" font-weight="900">۰</text><text y="54" text-anchor="middle" fill="#17384a" font-size="13" font-weight="800">منشور و مأموریت</text><text y="75" text-anchor="middle" fill="#718590" font-size="10">حامی و دامنه اولیه</text></g>
+    <g transform="translate(310 78)"><circle r="22" fill="#087f78"/><text y="6" text-anchor="middle" fill="#fff" font-size="14" font-weight="900">۱</text><text y="54" text-anchor="middle" fill="#17384a" font-size="13" font-weight="800">گزارش شناخت</text><text y="75" text-anchor="middle" fill="#718590" font-size="10">نقشه وضع موجود و شکاف‌ها</text></g>
+    <g transform="translate(530 78)"><circle r="22" fill="#087f78"/><text y="6" text-anchor="middle" fill="#fff" font-size="14" font-weight="900">۲</text><text y="54" text-anchor="middle" fill="#17384a" font-size="13" font-weight="800">پایلوت پذیرفته‌شده</text><text y="75" text-anchor="middle" fill="#718590" font-size="10">KPI، داده و داشبورد</text></g>
+    <g transform="translate(750 78)"><circle r="22" fill="#427ed4"/><text y="6" text-anchor="middle" fill="#fff" font-size="14" font-weight="900">۳</text><text y="54" text-anchor="middle" fill="#17384a" font-size="13" font-weight="800">توسعه سازمانی</text><text y="75" text-anchor="middle" fill="#718590" font-size="10">حوزه‌ها و قواعد پایدار</text></g>
+    <g transform="translate(970 78)"><circle r="22" fill="#7b6de0"/><text y="6" text-anchor="middle" fill="#fff" font-size="14" font-weight="900">۴</text><text y="54" text-anchor="middle" fill="#17384a" font-size="13" font-weight="800">تحلیل پیشرفته</text><text y="75" text-anchor="middle" fill="#718590" font-size="10">مدل‌های ارزیابی‌شده</text></g>
+   </g>
+   <g fill="#e8f7f5" stroke="#cbeae4"><rect x="20" y="180" width="200" height="34" rx="9"/><rect x="240" y="180" width="200" height="34" rx="9"/><rect x="460" y="180" width="200" height="34" rx="9"/><rect x="680" y="180" width="200" height="34" rx="9"/><rect x="900" y="180" width="140" height="34" rx="9"/></g>
+   <g fill="#087f78" font-size="10" font-weight="800" text-anchor="middle"><text x="120" y="202">تصویب منشور</text><text x="340" y="202">تأیید شکاف‌ها</text><text x="560" y="202">پذیرش پایلوت</text><text x="780" y="202">تأمین منابع</text><text x="970" y="202">مجوز توسعه</text></g>
+  </svg>
+  <div class="visual-caption">هر دروازه، نقطه کنترل مدیریتی برای پذیرش خروجی، تأیید کیفیت و تصمیم درباره ادامه سرمایه‌گذاری است.</div>
+ </div>
+</div>
+
+
+
+<section class="section" id="value">
+ <div class="wrap">
+  <div class="section-head"><div><div class="kicker">09 / تحقق و سنجش ارزش</div><h2>ارزش‌آفرینی باید اندازه‌گیری و تأیید شود</h2><p class="lead">برای هر پروژه، پیش از اجرا خط مبنا تعیین می‌شود. منافع واقعی پس از اجرا با همان تعریف و دامنه سنجیده و با مشارکت مالک فرایند و واحد مالی تأیید می‌شوند.</p></div><div class="section-number">09</div></div>
+  <div class="outcomes">
+   <div class="outcome"><b>بالینی و کیفیتی</b><span>بهبود پایش کیفیت و شناسایی روندهای نیازمند مداخله</span></div>
+   <div class="outcome"><b>عملیاتی</b><span>کاهش فعالیت تکراری، شفافیت گلوگاه‌ها و بهره‌وری منابع</span></div>
+   <div class="outcome"><b>مالی</b><span>شناسایی مغایرت‌ها، بهبود پیگیری مطالبات و کنترل هزینه</span></div>
+   <div class="outcome"><b>تجربه بیمار</b><span>کاهش تأخیرهای قابل اصلاح و بهبود هماهنگی خدمات</span></div>
+   <div class="outcome"><b>راهبردی</b><span>افزایش آمادگی تحلیل پیشرفته و تصمیم‌گیری مبتنی بر شواهد</span></div>
+  </div>
+  <div class="formula"><div class="pill">فرمول سنجش بازگشت سرمایه</div><div class="eq">ROI = (Verified Benefits − Total Costs) ÷ Total Costs × 100</div><p>منافع مالی باید قابل تأیید باشند؛ هزینه‌ها شامل ابزار، زیرساخت، یکپارچه‌سازی، نیروی انسانی، آموزش، نگهداری و پشتیبانی است.</p></div>
+  <p class="note">هیچ درصد مشخصی برای صرفه‌جویی، افزایش درآمد یا زمان بازگشت سرمایه از پیش تضمین نمی‌شود. این مقادیر پس از تعیین خط مبنا و تدوین مدل مالی قابل برآورد خواهند بود. ارزش‌های بالینی و انسانی نیز جداگانه ارزیابی می‌شوند.</p>
+ </div>
+</section>
+
+<div class="visual-section">
+ <div class="wrap">
+  <div class="visual-panel">
+   <div class="visual-head"><div><h3>چرخه تحقق ارزش؛ از مسئله تا منفعت تأییدشده</h3><p>برای جلوگیری از نسبت‌دادن منافع فرضی به پروژه، سنجش باید با خط مبنا، روش محاسبه و تأیید مالک فرایند انجام شود.</p></div><span class="visual-label">VALUE REALIZATION</span></div>
+   <div class="value-loop">
+    <article><div class="num">۱</div><b>تعریف مسئله و خط مبنا</b><p>وضعیت موجود، دامنه سنجش و منبع معتبر ثبت می‌شود.</p></article>
+    <article><div class="num">۲</div><b>اجرای مداخله</b><p>تغییر فرایند، داشبورد یا سازوکار تصمیم اجرا می‌شود.</p></article>
+    <article><div class="num">۳</div><b>اندازه‌گیری مجدد</b><p>شاخص با همان تعریف و شرایط قابل مقایسه سنجیده می‌شود.</p></article>
+    <article><div class="num">۴</div><b>تأیید و تثبیت منفعت</b><p>مالک فرایند و واحد مالی نتیجه را بررسی و تأیید می‌کنند.</p></article>
+   </div>
+   <div class="visual-note">ارزش مالی یا عملیاتی باید با روش توافق‌شده محاسبه شود؛ همبستگی زمانی به‌تنهایی اثبات‌کننده اثر پروژه نیست.</div>
+  </div>
+ </div>
+</section>
+
+
+
+<section class="section white" id="security">
+ <div class="wrap">
+  <div class="section-head"><div><div class="kicker">10 / امنیت و استفاده مسئولانه</div><h2>حفاظت از اطلاعات سلامت، از ابتدا در طراحی</h2><p class="lead">اطلاعات سلامت از حساس‌ترین انواع داده است. امنیت و محرمانگی باید در همه لایه‌های معماری و چرخه عمر داده جاری باشد.</p></div><div class="section-number">10</div></div>
+  <div class="grid three">
+   <article class="card"><div class="icon">⌑</div><h3>کنترل دسترسی</h3><p>دسترسی مبتنی بر نقش و نیاز واقعی، اصل حداقل دسترسی، مدیریت هویت و بازبینی مجوزها.</p></article>
+   <article class="card"><div class="icon">◉</div><h3>حفاظت و ردیابی</h3><p>رمزنگاری متناسب با ریسک، ثبت رویدادها، کنترل انتقال، نگهداری و حذف اطلاعات.</p></article>
+   <article class="card"><div class="icon">◇</div><h3>استفاده ثانویه مسئولانه</h3><p>مستعارسازی یا بی‌نام‌سازی در موارد مجاز، بررسی اخلاقی و قانونی و کنترل طرف‌های ثالث.</p></article>
+  </div>
+  <div class="callout"><strong>مبنای انطباق:</strong> الزامات قانونی و مقررات سلامت ایران، تعهدات قراردادی و سیاست‌های بیمارستان باید مبنا باشند. ISO/IEC 27001 و ISO 27799 می‌توانند مراجع طراحی و ارزیابی باشند؛ اشاره به آن‌ها به‌معنای ادعای گواهی یا انطباق قطعی نیست.</div>
+ </div>
+</section>
+
+<section class="section" id="ai">
+ <div class="wrap">
+  <div class="section-head"><div><div class="kicker">11 / بلوغ تحلیلی و هوش مصنوعی</div><h2>هوش مصنوعی از داده قابل اعتماد آغاز می‌شود</h2><p class="lead">پیش از توسعه مدل‌های هوشمند باید مسئله درست صورت‌بندی شود و داده از نظر مالکیت، کیفیت، معنا، منشأ، امنیت و تناسب برای کاربرد مورد نظر ارزیابی شود.</p></div><div class="section-number">11</div></div>
+  <div class="grid three">
+   <article class="card"><h3>بنیان داده‌ای</h3><p>مالکیت روشن، کیفیت سنجیده، واژگان مشترک، فراداده، تبارشناسی و معماری معنایی قابل اعتماد.</p></article>
+   <article class="card"><h3>اعتبارسنجی و نظارت</h3><p>ارزیابی عملکرد مدل، محدودیت‌ها، سوگیری، تغییرپذیری داده و پایش مستمر پس از استقرار.</p></article>
+   <article class="card"><h3>مسئولیت انسانی</h3><p>هوش مصنوعی ابزار پشتیبان است؛ مسئولیت تصمیم‌های بالینی و حرفه‌ای در چارچوب صلاحیت انسانی باقی می‌ماند.</p></article>
+  </div>
+ </div>
+</section>
+
+<div class="visual-section">
+ <div class="wrap">
+  <div class="visual-panel">
+   <div class="visual-head"><div><h3>نردبان آمادگی هوش مصنوعی در سلامت</h3><p>حرکت به سمت AI باید بر پایه بلوغ تدریجی داده، معنا، امنیت و نظارت انسانی باشد.</p></div><span class="visual-label">AI READINESS</span></div>
+   <div class="ai-ladder">
+    <div class="ai-step"><small>سطح ۱</small><b>داده قابل اتکا</b><p>کیفیت، مالکیت، دسترسی، فراداده و تبارشناسی.</p></div>
+    <div class="ai-step"><small>سطح ۲</small><b>معنای مشترک</b><p>تعاریف، طبقه‌بندی‌ها و شاخص‌های معتبر.</p></div>
+    <div class="ai-step"><small>سطح ۳</small><b>تحلیل و اعتبارسنجی</b><p>داده مناسب، ارزیابی عملکرد، سوگیری و پایش.</p></div>
+    <div class="ai-step"><small>سطح ۴</small><b>کاربرد مسئولانه</b><p>نظارت انسانی، پاسخ‌گویی و پایش پس از استقرار.</p></div>
+   </div>
+   <div class="visual-note">در کاربردهای بالینی، مدل هوشمند ابزار پشتیبان است و جایگزین قضاوت حرفه‌ای و مسئولیت بالینی نمی‌شود.</div>
+  </div>
+ </div>
+</section>
+
+
+
+<section class="section white" id="benchmarks">
+ <div class="wrap">
+  <div class="section-head"><div><div class="kicker">12 / مطالعات تطبیقی</div><h2>تجربه‌های بین‌المللی؛ الگو برای یادگیری، نه نسخه آماده</h2><p class="lead">نمونه‌های زیر نشان می‌دهند چگونه معماری، داده و تحلیل می‌توانند به مسئله عملیاتی یا پژوهشی مشخص متصل شوند.</p></div><div class="section-number">12</div></div>
+  <div class="benchmark"><h3>NHS England — Federated Data Platform</h3><p>نمونه‌های Kingston و Coventry نشان می‌دهند یکپارچه‌سازی داده می‌تواند هماهنگی بیماران بستری و برنامه‌ریزی اتاق عمل را پشتیبانی کند. ارزش اصلی، اتصال داده به مسئله و گردش کار واقعی است.</p></div>
+  <div class="benchmark"><h3>Mayo Clinic — استفاده کنترل‌شده از داده‌های سلامت</h3><p>تجربه ایجاد محیط‌های کنترل‌شده برای تحلیل و پژوهش، بر حفظ کنترل سازمان بر داده و مدیریت دسترسی در استفاده ثانویه تأکید دارد.</p></div>
+  <div class="benchmark"><h3>HIMSS — مدل‌های بلوغ EMRAM و AMAM</h3><p>این مدل‌ها می‌توانند برای ارزیابی بلوغ دیجیتال، یکپارچگی سامانه‌ها و قابلیت‌های تحلیلی مرجع تطبیقی باشند.</p></div>
+  <div class="benchmark"><h3>JCI — کیفیت و ایمنی بیمار</h3><p>تأکید بر انتخاب شاخص، جمع‌آوری و تحلیل داده، اعتبارسنجی و استفاده از نتایج برای بهبود کیفیت و عملکرد.</p></div>
+ </div>
+</section>
+
+<section class="section" id="success">
+ <div class="wrap">
+  <div class="section-head"><div><div class="kicker">13 / عوامل کلیدی موفقیت</div><h2>پیش‌نیازهای سازمانی و مدیریتی</h2><p class="lead">موفقیت برنامه فقط به فناوری وابسته نیست؛ حمایت، اختیار، منابع و همکاری بین‌واحدی عوامل تعیین‌کننده‌اند.</p></div><div class="section-number">13</div></div>
+  <div class="grid four">
+   <article class="card"><h3>حمایت مدیریت ارشد</h3><p>حامی اجرایی روشن و دسترسی به سطح تصمیم‌گیری.</p></article>
+   <article class="card"><h3>اختیار متناسب</h3><p>تطابق مسئولیت پاسخ‌گویی با اختیار و منابع.</p></article>
+   <article class="card"><h3>مشارکت صاحبان فرایند</h3><p>همکاری بالینی، مالی، عملیاتی و پشتیبانی.</p></article>
+   <article class="card"><h3>دسترسی کنترل‌شده</h3><p>دسترسی مجاز به مستندات و داده‌های مورد نیاز.</p></article>
+   <article class="card"><h3>منابع تخصصی</h3><p>نیروی انسانی، زیرساخت، بودجه و زمان کافی.</p></article>
+   <article class="card"><h3>مدیریت تغییر</h3><p>آموزش، همراه‌سازی کاربران و توسعه فرهنگ داده.</p></article>
+   <article class="card"><h3>تحویل مرحله‌ای</h3><p>خروجی، معیار پذیرش و سنجش در هر مرحله.</p></article>
+   <article class="card"><h3>پرهیز از فناوری‌محوری</h3><p>انتخاب ابزار پس از شناخت مسئله و نیازمندی.</p></article>
+  </div>
+  <div class="callout"><strong>اصل اجرا:</strong> راهبرد مسیر حرکت را مشخص می‌کند؛ اما تبدیل آن به نتیجه، به پاسخ‌گویی افراد، حمایت مدیریت، شفافیت اختیارات، تصمیم‌گیری به‌موقع، تأمین منابع و همکاری ذی‌نفعان وابسته است.</div>
+ </div>
+</section>
+
+<section class="section white" id="decision">
+ <div class="wrap">
+  <div class="section-head"><div><div class="kicker">14 / گام آغازین و تصمیم مدیریتی</div><h2>شروع پیشنهادی: تصویب مرحله شناخت و ارزیابی</h2><p class="lead">به‌جای تعهد زودهنگام به خرید فناوری یا اجرای گسترده، نخستین تصمیم باید ایجاد مأموریت روشن برای شناخت وضع موجود و تدوین نقشه راه مبتنی بر شواهد باشد.</p></div><div class="section-number">14</div></div>
+  <div class="grid two">
+   <div class="card">
+    <h3>تصمیم‌های مورد نیاز</h3>
+    <div class="accordion open"><button type="button">۱. موافقت با آغاز ارزیابی وضع موجود <span class="plus">−</span></button><div class="content">شناخت فرایندها، سامانه‌ها، منابع داده، شاخص‌ها، نیازهای اطلاعاتی و سطح بلوغ.</div></div>
+    <div class="accordion"><button type="button">۲. تعیین حامی اجرایی و نمایندگان واحدها <span class="plus">＋</span></button><div class="content">معرفی نمایندگان بالینی، مالی، عملیاتی، کیفیت، فناوری و سایر حوزه‌های مرتبط.</div></div>
+    <div class="accordion"><button type="button">۳. تعیین مسئول راهبری و هماهنگی <span class="plus">＋</span></button><div class="content">تعریف مأموریت، دسترسی به مدیریت ارشد و امکان هماهنگی بین‌واحدی.</div></div>
+    <div class="accordion"><button type="button">۴. فراهم‌کردن دسترسی کنترل‌شده <span class="plus">＋</span></button><div class="content">دسترسی مجاز به مستندات، گزارش‌ها و اطلاعات مورد نیاز مطابق سیاست‌های امنیتی.</div></div>
+    <div class="accordion"><button type="button">۵. تصمیم‌گیری بر اساس نتایج ارزیابی <span class="plus">＋</span></button><div class="content">انتخاب پروژه‌های اجرایی، فناوری‌ها، ساختار و منابع پس از شناخت واقعی و اولویت‌بندی.</div></div>
+   </div>
+   <div class="card dark">
+    <div class="pill">خروجی مرحله شناخت</div>
+    <h3 style="margin-top:15px">نقشه راه قابل تصمیم‌گیری و اجرا</h3>
+    <p>گزارش وضع موجود، نقشه سامانه‌ها و داده‌ها، تحلیل شکاف و بلوغ، مسائل و فرصت‌های اولویت‌دار، معماری پیشنهادی، پروژه پایلوت، برآورد منابع و هزینه و معیارهای سنجش ارزش.</p>
+    <div style="height:1px;background:rgba(255,255,255,.16);margin:20px 0"></div>
+    <p><strong style="color:#fff">اصل تصمیم:</strong> سرمایه‌گذاری و توسعه برنامه بر پایه شناخت واقعی، شواهد قابل ارزیابی و منافع مورد انتظار بیمارستان انجام شود.</p>
+   </div>
+  </div>
+  <div class="cta" style="margin-top:26px">
+   <div><h2>داده معتبر، تصمیم بهتر، مراقبت اثربخش‌تر</h2><p>این چارچوب نقطه شروعی برای گفت‌وگوی مدیریتی و ارزیابی واقع‌بینانه مسیر تحول داده در بیمارستان میلاد است. دامنه و اولویت‌های اجرایی در تعامل با مدیران و صاحبان فرایند نهایی خواهد شد.</p></div>
+   <a class="btn" href="#top">بازگشت به ابتدای سند ↑</a>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="references">
+ <div class="wrap">
+  <div class="section-head"><div><div class="kicker">15 / منابع و مراجع</div><h2>پشتوانه‌های علمی، استانداردها و الگوهای حرفه‌ای</h2><p class="lead">مراجع زیر برای طراحی چارچوب و ارزیابی تطبیقی استفاده شده‌اند. کاربرد هر استاندارد باید با الزامات و شرایط واقعی بیمارستان تطبیق داده شود.</p></div><div class="section-number">15</div></div>
+  <div class="references">
+   <div class="ref"><b>WHO — Global Strategy on Digital Health 2020–2027</b>راهبرد جهانی سلامت دیجیتال و رویکرد انسان‌محور.</div>
+   <div class="ref"><b>WHO — Data Principles</b>اصول حکمرانی داده، کیفیت، شفافیت، حریم خصوصی و امنیت.</div>
+   <div class="ref"><b>DAMA International — DAMA-DMBOK</b>مرجع حوزه‌های دانش مدیریت داده و حاکمیت داده.</div>
+   <div class="ref"><b>ISO 7101:2023</b>سیستم‌های مدیریت کیفیت در سازمان‌های ارائه‌دهنده خدمات سلامت.</div>
+   <div class="ref"><b>ISO 27799:2025</b>کنترل‌های امنیت اطلاعات سلامت مبتنی بر ISO/IEC 27002.</div>
+   <div class="ref"><b>ISO/IEC 27001:2022</b>الزامات سیستم مدیریت امنیت اطلاعات.</div>
+   <div class="ref"><b>ISO 8000</b>اصول و چارچوب کیفیت داده.</div>
+   <div class="ref"><b>HIMSS — EMRAM / AMAM</b>مدل‌های بلوغ دیجیتال و تحلیلی در سلامت.</div>
+   <div class="ref"><b>HL7 FHIR</b>استاندارد تبادل الکترونیکی اطلاعات سلامت.</div>
+   <div class="ref"><b>DICOM</b>استاندارد ارتباط و مدیریت تصاویر پزشکی.</div>
+   <div class="ref"><b>Joint Commission International — QPS</b>استانداردهای کیفیت و ایمنی بیمار و تحلیل شاخص‌ها.</div>
+   <div class="ref"><b>NHS England — Federated Data Platform</b>نمونه‌های اجرایی یکپارچه‌سازی داده و بهبود عملیات بیمارستانی.</div>
+   <div class="ref"><b>Mayo Clinic — Data and Analytics</b>تجربه استفاده کنترل‌شده از داده‌های سلامت برای تحلیل و پژوهش.</div>
+   <div class="ref"><b>Transform Health — Health Data Governance Principles</b>اصول تکمیلی حکمرانی مسئولانه داده سلامت.</div>
+  </div>
+  <p class="note">این سند یک چارچوب پیشنهادی برای بررسی و تصمیم‌گیری است؛ تشخیص وضع موجود، تعیین دامنه قطعی، انتخاب فناوری، برآورد هزینه و تصویب شاخص‌ها نیازمند ارزیابی اختصاصی بیمارستان است.</p>
+ </div>
+</section>
+</main>
+
+<footer class="footer">
+ <strong>چارچوب تحول داده، حاکمیت داده و هوش تجاری بیمارستان میلاد</strong><br>
+ سند تعاملی پیشنهادی | تهیه‌شده برای بررسی مدیریتی | غلامرضا شیخ شعربافان
+</footer>
+<button class="backtop" aria-label="بازگشت به بالا" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+const progress=document.getElementById('progress');
+window.addEventListener('scroll',()=>{const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;progress.style.width=(max>0?(h.scrollTop/max*100):0)+'%'});
+document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{
+ document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));
+ document.querySelectorAll('.tabpanel').forEach(x=>x.classList.remove('active'));
+ btn.classList.add('active');btn.setAttribute('aria-selected','true');document.getElementById(btn.dataset.tab).classList.add('active');
+ document.querySelectorAll('.tab').forEach(x=>{if(x!==btn)x.setAttribute('aria-selected','false')});
+}));
+document.querySelectorAll('.accordion button').forEach(btn=>btn.addEventListener('click',()=>{
+ const box=btn.parentElement;box.classList.toggle('open');
+ const plus=btn.querySelector('.plus');plus.textContent=box.classList.contains('open')?'−':'＋';
+}));
+const sections=[...document.querySelectorAll('main section[id]')];
+const links=[...document.querySelectorAll('.nav a')];
+const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
+ if(entry.isIntersecting){links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+entry.target.id))}
+}),{rootMargin:'-25% 0px -65% 0px'});
+sections.forEach(s=>observer.observe(s));
+</script>
+</body>
+</html>
